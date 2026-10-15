@@ -1,6 +1,6 @@
-# Backrooms
+# backrooms
 
-A ten-level, entirely static Backrooms prototype. No installation, bundler, backend,
+A ten-level, entirely static backrooms prototype. No installation, bundler, backend,
 CDN, analytics, external fonts, API calls, or downloaded runtime assets.
 
 ## Preview
@@ -50,7 +50,7 @@ Publish this directory unchanged so `/backrooms/index.html`, `main.js`, `world.j
 For a **new standalone repository**, put this folder's contents at the repo root.
 In **Settings > Pages > Build and deployment**, choose **Deploy from a branch**,
 select `main` and `/ (root)`. The `.nojekyll` file bypasses Jekyll. No installation
-or build is needed. A repository named `Backrooms` is served under `/Backrooms/`.
+or build is needed. The `backrooms` repository is served at https://waychas.github.io/backrooms/.
 
 All asset URLs are relative, so `/backrooms/` under a custom/user domain, or
 `/repository/backrooms/` on a project Pages site, work without configuration.
@@ -60,7 +60,7 @@ To embed this
 inside an existing website, host the folder under a subpath or use an iframe:
 
 ```html
-<iframe src="./backrooms/" title="Backrooms exploration"
+<iframe src="./backrooms/" title="backrooms exploration"
   style="width:100%;height:80vh;border:0" allow="fullscreen"
   allowfullscreen></iframe>
 ```
