@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171914">
+  <meta name="description" content="Ten fixed Backrooms levels. Find each exit. No monsters.">
+  <title>Backrooms</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="experience" aria-label="Interactive Backrooms exploration">
+    <canvas id="world" aria-label="3D Backrooms. Use WASD to move, mouse or arrow keys to look, Shift to run, M for overhead view." tabindex="0"></canvas>
+    <div class="film" aria-hidden="true"></div>
+    <header class="topbar">
+      <span id="level-label">LEVEL 1 / 10</span>
+      <div class="top-actions">
+        <button id="sound" aria-pressed="false" title="Toggle fluorescent ambience">SOUND <span>OFF</span></button>
+        <button id="settings-toggle" aria-expanded="false" aria-controls="settings">TUNE <span>+</span></button>
+      </div>
+    </header>
+
+    <section class="intro" id="intro" aria-label="Start or resume">
+      <button class="enter" id="enter" disabled>LOADING...</button>
+      <p id="completion" hidden>All 10 levels completed.</p>
+    </section>
+
+    <aside id="settings" class="panel" hidden aria-label="Experience settings">
+      <div class="panel-heading">TUNE <button id="settings-close" aria-label="Close settings">CLOSE</button></div>
+      <label for="level-select">LEVEL</label>
+      <select id="level-select" aria-label="Level">
+        <option value="0">Level 1</option><option value="1">Level 2</option>
+        <option value="2">Level 3</option><option value="3">Level 4</option>
+        <option value="4">Level 5</option><option value="5">Level 6</option>
+        <option value="6">Level 7</option><option value="7">Level 8</option>
+        <option value="8">Level 9</option><option value="9">Level 10</option>
+      </select>
+      <label for="fov">FIELD OF VIEW <output id="fov-value">92&deg;</output></label>
+      <input id="fov" type="range" min="65" max="110" value="92">
+      <label for="speed">WALKING SPEED <output id="speed-value">5.8 m/s</output></label>
+      <input id="speed" type="range" min="2" max="9" step="0.2" value="5.8">
+      <button class="panel-button" id="reset">RETURN TO ENTRANCE <span>&#8599;</span></button>
+      <a class="credits-link" href="./CREDITS.md" target="_blank" rel="noopener">ASSETS &amp; OPEN-SOURCE CREDITS &#8599;</a>
+    </aside>
+
+    <div class="crosshair" id="crosshair" hidden aria-hidden="true"></div>
+    <div class="mode-note" id="mode-note" hidden>OVERHEAD VIEW <span>WASD TO MOVE / M TO RETURN</span></div>
+
+    <footer class="bottom-bar">
+      <div class="location"><button id="exit-action" hidden>ENTER NEXT LEVEL <kbd>E</kbd></button></div>
+      <div class="controls" id="controls"><span><kbd>W A S D</kbd> MOVE</span><span><kbd>&#8592; &#8594;</kbd> LOOK</span><span><kbd>SHIFT</kbd> FASTER</span></div>
+      <button id="view-toggle" aria-pressed="false" title="Switch perspective (M)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 8 4.5-8 4.5-8-4.5Z M2 10l8 4.5 8-4.5 M2 13.5l8 4.5 8-4.5"/></svg><span id="view-label">OVERHEAD</span><kbd>M</kbd></button>
+    </footer>
+    <div class="touch-controls" id="touch-controls" hidden aria-label="Touch movement">
+      <button data-move="KeyW" aria-label="Move forward">&#8593;</button>
+      <div><button data-move="KeyA" aria-label="Move left">&#8592;</button><button data-move="KeyS" aria-label="Move backward">&#8595;</button><button data-move="KeyD" aria-label="Move right">&#8594;</button></div>
+    </div>
+    <div id="notice" class="notice" role="status" hidden></div>
+  </main>
+  <script src="./vendor/three-r160.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
